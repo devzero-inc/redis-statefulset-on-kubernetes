@@ -1,0 +1,32 @@
+{
+  "name": "dz-redis-demo",
+  "version": "1.0.0",
+  "description": "A real-time chat appliation made with React.js, Express.js and Redis for Cache support",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "dev": "nodemon backend/index.js",
+    "start": "node backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScaleupInfra/dz-redis.git"
+  },
+  "author": "Aryan Mohanty, Garvit, Infrasity",
+  "bugs": {
+    "url": "https://github.com/ScaleupInfra/dz-redis/issues"
+  },
+  "homepage": "https://github.com/ScaleupInfra/dz-redis#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "connect-redis": "^7.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "ip": "^2.0.1",
+    "node-random-name": "^1.0.1",
+    "redis": "^4.7.0",
+    "socket.io": "^4.7.5"
+  }
+}
