@@ -1,0 +1,54 @@
+# DevZero Redis Demo Chat Application Recipe
+version: "3"
+
+# Build Environment
+build:
+  steps:
+    # Install Starter Packages
+    - type: apt-get
+      packages: ["build-essential", "curl", "git", "nano", "software-properties-common", "ssh", "sudo", "tar", "unzip", "vim", "wget", "zip"]
+    # END
+    # ----------------------------------------
+    # Install Kubectl CLI tool
+    - type: apt-get
+      packages: ["curl"]
+    - type: command
+      command: |-
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && rm kubectl
+      user: root
+    # END
+    # ----------------------------------------
+    # Install Nodejs
+    - type: command
+      command: |-
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        export NVM_DIR=$HOME/.nvm && [ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh
+        nvm install 21.0.0
+      directory: /home/devzero
+      user: devzero
+    # END
+    # ----------------------------------------
+    # Clone the Repository
+    - type: git-clone
+      url: https://github.com/ScaleupInfra/dz-redis
+  
+# Launch Environment
+launch:
+  steps:
+    # Create the Namespace and apply the manifest files
+    - type: command
+      command: |
+        if ! kubectl get ns dz-redis >/dev/null 2>&1; then
+          kubectl create namespace dz-redis
+          kubectl config set-context --current --namespace=dz-redis
+          cd dz-redis
+          kubectl apply -f k8s
+        else
+          echo "Namespace dz-redis already exists. Creating alternate namespace."
+          kubectl create namespace dz-redis-copy
+          kubectl config set-context --current --namespace=dz-redis-copy
+          cd dz-redis
+          kubectl apply -f k8s
+        fi
+    # END
