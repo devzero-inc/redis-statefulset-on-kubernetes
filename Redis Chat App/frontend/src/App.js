@@ -32,7 +32,7 @@ const App = () => {
       <div
         className={`full-height ${showLogin ? "bg-light" : ""}`}
         style={{
-          backgroundColor: !showLogin ? "#495057" : undefined,
+          backgroundColor: !showLogin ? "#101826" : undefined,
         }}
       >
         {/* <Navbar /> */}

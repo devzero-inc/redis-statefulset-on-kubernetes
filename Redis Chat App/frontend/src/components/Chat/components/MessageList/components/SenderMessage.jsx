@@ -28,8 +28,11 @@ const SenderMessage = ({
                 onClick={onUserClicked}
               >
                 {user.username}
+              </div >
+              <div style={{ marginLeft: '5px' }}>
+                <OnlineIndicator width={7} height={7} online={user.online} />
               </div>
-              <OnlineIndicator width={7} height={7} online={user.online} />
+
             </div>
           )}
           <p className="text-left">{message}</p>

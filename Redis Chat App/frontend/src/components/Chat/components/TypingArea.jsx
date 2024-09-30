@@ -1,4 +1,3 @@
-// @ts-check
 const TypingArea = ({ message, setMessage, onSubmit }) => (
   <div className="p-3 chat-input-section">
     <form className="row" onSubmit={onSubmit}>
@@ -19,7 +18,7 @@ const TypingArea = ({ message, setMessage, onSubmit }) => (
           type="submit"
           className="btn btn-primary btn-rounded chat-send w-md"
         >
-          <span className="d-none d-sm-inline-block mr-2">Send</span>
+          <span className="d-none d-sm-inline-block mr-2 px-2">Send</span>
           <svg width={13} height={13} viewBox="0 0 24 24" tabIndex={-1}>
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white" />
           </svg>

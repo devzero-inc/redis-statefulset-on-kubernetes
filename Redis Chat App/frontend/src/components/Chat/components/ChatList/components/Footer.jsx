@@ -8,9 +8,9 @@ import AvatarImage from "./AvatarImage";
 const Footer = ({ user, onLogOut }) => (
   <div
     className="row no-gutters align-items-center pl-4 pr-2 pb-3"
-    style={{ height: "inherit", flex: 0, minHeight: 50 }}
+    style={{ height: "inherit", flex: 0, minHeight: 50, paddingLeft: "1rem" }}
   >
-    {true ? (
+    {true ? ( 
       <>
         <UserInfo user={user} col={8} />
         <LogoutButton onLogOut={onLogOut} col={4} />
@@ -44,11 +44,11 @@ const UserInfo = ({ user, col = 7, noinfo = false }) => (
       <AvatarImage name={user.username} id={user.id} />
     </div>
     {!noinfo && (
-      <div className="media-body">
+      <div className="media-body px-2">
         <h5 className="font-size-14 mt-0 mb-1">{user.username}</h5>
         <div className="d-flex align-items-center">
           <OnlineIndicator online={true} />
-          <p className="ml-2 text-muted mb-0">Active</p>
+          <p className="ml-2 text-muted mb-0 px-1">Active</p>
         </div>
       </div>
     )}

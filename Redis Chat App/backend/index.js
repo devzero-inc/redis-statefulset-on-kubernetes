@@ -63,6 +63,7 @@ const publish = (type, data) => {
     data,
   };
   redisClient.publish("MESSAGES", JSON.stringify(outgoing));
+  console.log("Message recieved.")
 };
 
 const initPubSub = () => {

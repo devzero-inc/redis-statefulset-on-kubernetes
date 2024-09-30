@@ -1,4 +1,3 @@
-// @ts-check
 import { createContext, useContext, useReducer } from "react";
 
 /**

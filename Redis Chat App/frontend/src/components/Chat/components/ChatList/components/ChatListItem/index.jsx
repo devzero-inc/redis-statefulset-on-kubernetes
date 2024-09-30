@@ -26,7 +26,7 @@ const ChatListItem = ({ room, active = false, onClick }) => {
       <div className="align-self-center mr-3">
         <AvatarImage name={name} id={userId} />
       </div>
-      <div className="media-body overflow-hidden">
+      <div className="media-body overflow-hidden px-2">
         <h5 className="text-truncate font-size-14 mb-1">{name}</h5>
         {lastMessage && (
           <p className="text-truncate mb-0"> {lastMessage.message} </p>
